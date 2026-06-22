@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-3">Mis Tareas</h2>
+
+{% if user.is_authenticated %}
+    <a class="btn btn-success mb-3" href="/crear/">+ Nueva tarea</a>
+{% endif %}
+
+<div class="list-group">
+
+    {% for tarea in tareas %}
+        <div class="list-group-item">
+
+            <div class="d-flex justify-content-between align-items-center">
+
+                <div>
+                    <strong>{{ tarea.titulo }}</strong><br>
+                    <small>
+                        Categoría: {{ tarea.categoria }} |
+                        Prioridad: {{ tarea.prioridad }} |
+                        Usuario: {{ tarea.usuario.username }}
+                    </small>
+                </div>
+
+                <div>
+
+                    {% if user.is_authenticated %}
+                        <a class="btn btn-warning btn-sm" href="/editar/{{ tarea.id }}">Editar</a>
+                    {% endif %}
+
+                    {% if user.is_staff %}
+                        <a class="btn btn-danger btn-sm" href="/eliminar/{{ tarea.id }}">Eliminar</a>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

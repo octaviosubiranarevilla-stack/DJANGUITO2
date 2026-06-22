@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Formulario de Tarea</h2>
+
+<div class="card p-3">
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button class="btn btn-primary" type="submit">
+            Guardar
+        </button>
+
+        <a class="btn btn-secondary" href="/">
+            Cancelar
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}
