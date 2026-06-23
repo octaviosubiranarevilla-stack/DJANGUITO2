@@ -9,7 +9,7 @@ Proyecto desarrollado con Django que permite gestionar tareas con autenticación
 
 ### 1. Clonar repositorio
 
-git clone https://github.com/octavius0713/todolist-django.git
+git clone https://github.com/octavius0713/todolist-djanguito.git
 
 cd todolist-django
 
